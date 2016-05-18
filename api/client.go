@@ -1,11 +1,7 @@
 // NOTE: Subject to change, do not rely on this package from outside git-lfs source
 package api
 
-import (
-	"net/url"
-
-	"github.com/github/git-lfs/api"
-)
+import "net/url"
 
 // Client exposes the LFS API to callers through a multitude of different
 // services and transport mechanisms. Callers can make a *RequestSchema using
@@ -60,7 +56,7 @@ func NewClient(root string) (*Client, error) {
 // If no error occured, an some api.Response implementation will be returned,
 // along with a `nil` error. At this point, the body of the response has been
 // serialized into `schema.Into`, and the body is closed.
-func (c *Client) Do(schema *api.RequestSchema) (api.Response, error) {
+func (c *Client) Do(schema *RequestSchema) (Response, error) {
 	req, err := c.http.Build(schema)
 	if err != nil {
 		return nil, err
@@ -71,5 +67,5 @@ func (c *Client) Do(schema *api.RequestSchema) (api.Response, error) {
 		return nil, err
 	}
 
-	return c.http.Cleanup(resp)
+	return resp, c.http.Cleanup(resp)
 }
