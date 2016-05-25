@@ -14,8 +14,9 @@ import (
 
 var (
 	fetchCmd = &cobra.Command{
-		Use: "fetch",
-		Run: fetchCommand,
+		Use:    "fetch",
+		Run:    fetchCommand,
+		PreRun: NeedsLocalStorage,
 	}
 	fetchIncludeArg string
 	fetchExcludeArg string

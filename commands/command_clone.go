@@ -15,8 +15,9 @@ import (
 
 var (
 	cloneCmd = &cobra.Command{
-		Use: "clone",
-		Run: cloneCommand,
+		Use:    "clone",
+		Run:    cloneCommand,
+		PreRun: NeedsLocalStorage,
 	}
 
 	cloneFlags git.CloneFlags

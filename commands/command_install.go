@@ -7,13 +7,15 @@ import (
 
 var (
 	installCmd = &cobra.Command{
-		Use: "install",
-		Run: installCommand,
+		Use:    "install",
+		Run:    installCommand,
+		PreRun: NeedsLocalStorage,
 	}
 
 	installHooksCmd = &cobra.Command{
-		Use: "hooks",
-		Run: installHooksCommand,
+		Use:    "hooks",
+		Run:    installHooksCommand,
+		PreRun: NeedsLocalStorage,
 	}
 
 	forceInstall      = false

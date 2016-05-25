@@ -9,14 +9,16 @@ import (
 
 var (
 	extCmd = &cobra.Command{
-		Use: "ext",
-		Run: extCommand,
+		Use:    "ext",
+		Run:    extCommand,
+		PreRun: NeedsLocalStorage,
 	}
 
 	extListCmd = &cobra.Command{
-		Use:   "list",
-		Short: "View details for specified extensions",
-		Run:   extListCommand,
+		Use:    "list",
+		Short:  "View details for specified extensions",
+		Run:    extListCommand,
+		PreRun: NeedsLocalStorage,
 	}
 )
 

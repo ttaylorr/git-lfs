@@ -12,14 +12,16 @@ import (
 var (
 	// uninitCmd removes any configuration and hooks set by Git LFS.
 	uninitCmd = &cobra.Command{
-		Use: "uninit",
-		Run: uninitCommand,
+		Use:    "uninit",
+		Run:    uninitCommand,
+		PreRun: NeedsLocalStorage,
 	}
 
 	// uninitHooksCmd removes any hooks created by Git LFS.
 	uninitHooksCmd = &cobra.Command{
-		Use: "hooks",
-		Run: uninitHooksCommand,
+		Use:    "hooks",
+		Run:    uninitHooksCommand,
+		PreRun: NeedsLocalStorage,
 	}
 )
 

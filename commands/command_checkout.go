@@ -17,8 +17,9 @@ import (
 
 var (
 	checkoutCmd = &cobra.Command{
-		Use: "checkout",
-		Run: checkoutCommand,
+		Use:    "checkout",
+		Run:    checkoutCommand,
+		PreRun: NeedsLocalStorage,
 	}
 )
 

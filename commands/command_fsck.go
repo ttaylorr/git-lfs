@@ -17,8 +17,9 @@ var (
 	fsckDryRun bool
 
 	fsckCmd = &cobra.Command{
-		Use: "fsck",
-		Run: fsckCommand,
+		Use:    "fsck",
+		Run:    fsckCommand,
+		PreRun: NeedsLocalStorage,
 	}
 )
 

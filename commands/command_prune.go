@@ -18,9 +18,10 @@ import (
 
 var (
 	pruneCmd = &cobra.Command{
-		Use:   "prune",
-		Short: "Deletes old LFS files from the local store",
-		Run:   pruneCommand,
+		Use:    "prune",
+		Short:  "Deletes old LFS files from the local store",
+		Run:    pruneCommand,
+		PreRun: NeedsLocalStorage,
 	}
 	pruneDryRunArg      bool
 	pruneVerboseArg     bool

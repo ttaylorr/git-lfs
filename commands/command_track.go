@@ -18,8 +18,9 @@ import (
 
 var (
 	trackCmd = &cobra.Command{
-		Use: "track",
-		Run: trackCommand,
+		Use:    "track",
+		Run:    trackCommand,
+		PreRun: NeedsLocalStorage,
 	}
 )
 

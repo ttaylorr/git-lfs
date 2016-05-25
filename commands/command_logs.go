@@ -13,28 +13,33 @@ import (
 
 var (
 	logsCmd = &cobra.Command{
-		Use: "logs",
-		Run: logsCommand,
+		Use:    "logs",
+		Run:    logsCommand,
+		PreRun: NeedsLocalStorage,
 	}
 
 	logsLastCmd = &cobra.Command{
-		Use: "last",
-		Run: logsLastCommand,
+		Use:    "last",
+		Run:    logsLastCommand,
+		PreRun: NeedsLocalStorage,
 	}
 
 	logsShowCmd = &cobra.Command{
-		Use: "show",
-		Run: logsShowCommand,
+		Use:    "show",
+		Run:    logsShowCommand,
+		PreRun: NeedsLocalStorage,
 	}
 
 	logsClearCmd = &cobra.Command{
-		Use: "clear",
-		Run: logsClearCommand,
+		Use:    "clear",
+		Run:    logsClearCommand,
+		PreRun: NeedsLocalStorage,
 	}
 
 	logsBoomtownCmd = &cobra.Command{
-		Use: "boomtown",
-		Run: logsBoomtownCommand,
+		Use:    "boomtown",
+		Run:    logsBoomtownCommand,
+		PreRun: NeedsLocalStorage,
 	}
 )
 

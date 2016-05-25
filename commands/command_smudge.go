@@ -16,8 +16,9 @@ var (
 	smudgeInfo = false
 	smudgeSkip = false
 	smudgeCmd  = &cobra.Command{
-		Use: "smudge",
-		Run: smudgeCommand,
+		Use:    "smudge",
+		Run:    smudgeCommand,
+		PreRun: NeedsLocalStorage,
 	}
 )
 

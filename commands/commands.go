@@ -15,6 +15,7 @@ import (
 	"github.com/github/git-lfs/errutil"
 	"github.com/github/git-lfs/git"
 	"github.com/github/git-lfs/lfs"
+	"github.com/github/git-lfs/localstorage"
 	"github.com/spf13/cobra"
 )
 
@@ -33,7 +34,10 @@ var (
 			cmd.Usage()
 		},
 	}
-	ManPages = make(map[string]string, 20)
+	ManPages          = make(map[string]string, 20)
+	NeedsLocalStorage = func(cmd *spf13.Command, args []string) {
+		localstorage.ResolveDirs()
+	}
 )
 
 // Error prints a formatted message to Stderr.  It also gets printed to the

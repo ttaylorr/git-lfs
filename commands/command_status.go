@@ -10,8 +10,9 @@ import (
 
 var (
 	statusCmd = &cobra.Command{
-		Use: "status",
-		Run: statusCommand,
+		Use:    "status",
+		Run:    statusCommand,
+		PreRun: NeedsLocalStorage,
 	}
 	porcelain = false
 )

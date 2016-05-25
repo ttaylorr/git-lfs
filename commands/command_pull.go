@@ -10,8 +10,9 @@ import (
 
 var (
 	pullCmd = &cobra.Command{
-		Use: "pull",
-		Run: pullCommand,
+		Use:    "pull",
+		Run:    pullCommand,
+		PreRun: NeedsLocalStorage,
 	}
 	pullIncludeArg string
 	pullExcludeArg string

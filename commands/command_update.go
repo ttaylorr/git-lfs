@@ -11,8 +11,9 @@ import (
 
 var (
 	updateCmd = &cobra.Command{
-		Use: "update",
-		Run: updateCommand,
+		Use:    "update",
+		Run:    updateCommand,
+		PreRun: NeedsLocalStorage,
 	}
 
 	updateForce  = false

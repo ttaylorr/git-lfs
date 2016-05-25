@@ -8,14 +8,16 @@ import (
 var (
 	// uninstallCmd removes any configuration and hooks set by Git LFS.
 	uninstallCmd = &cobra.Command{
-		Use: "uninstall",
-		Run: uninstallCommand,
+		Use:    "uninstall",
+		Run:    uninstallCommand,
+		PreRun: NeedsLocalStorage,
 	}
 
 	// uninstallHooksCmd removes any hooks created by Git LFS.
 	uninstallHooksCmd = &cobra.Command{
-		Use: "hooks",
-		Run: uninstallHooksCommand,
+		Use:    "hooks",
+		Run:    uninstallHooksCommand,
+		PreRun: NeedsLocalStorage,
 	}
 )
 

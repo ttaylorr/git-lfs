@@ -13,8 +13,9 @@ import (
 
 var (
 	pushCmd = &cobra.Command{
-		Use: "push",
-		Run: pushCommand,
+		Use:    "push",
+		Run:    pushCommand,
+		PreRun: NeedsLocalStorage,
 	}
 	pushDryRun    = false
 	pushObjectIDs = false

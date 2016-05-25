@@ -13,8 +13,9 @@ import (
 
 var (
 	prePushCmd = &cobra.Command{
-		Use: "pre-push",
-		Run: prePushCommand,
+		Use:    "pre-push",
+		Run:    prePushCommand,
+		PreRun: NeedsLocalStorage,
 	}
 	prePushDryRun       = false
 	prePushDeleteBranch = strings.Repeat("0", 40)

@@ -122,8 +122,6 @@ func ScanObjectsChan() <-chan localstorage.Object {
 func init() {
 	tracerx.DefaultKey = "GIT"
 	tracerx.Prefix = "trace git-lfs: "
-
-	localstorage.ResolveDirs()
 }
 
 const (

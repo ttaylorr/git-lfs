@@ -11,13 +11,15 @@ import (
 
 var (
 	initCmd = &cobra.Command{
-		Use: "init",
-		Run: initCommand,
+		Use:    "init",
+		Run:    initCommand,
+		PreRun: NeedsLocalStorage,
 	}
 
 	initHooksCmd = &cobra.Command{
-		Use: "hooks",
-		Run: initHooksCommand,
+		Use:    "hooks",
+		Run:    initHooksCommand,
+		PreRun: NeedsLocalStorage,
 	}
 )
 

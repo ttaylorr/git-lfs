@@ -11,8 +11,9 @@ import (
 
 var (
 	cleanCmd = &cobra.Command{
-		Use: "clean",
-		Run: cleanCommand,
+		Use:    "clean",
+		Run:    cleanCommand,
+		PreRun: NeedsLocalStorage,
 	}
 )
 
